@@ -12,28 +12,37 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+	<link rel="stylesheet" href="css/main.css">
 
-	<style>
-		#bienvenida
-		{
-			border: 1px solid #CCC;
-			margin: 10px;
-		}
-		#chat
-		{
-			margin: 10px;
-			border: 1px solid #CCC;
-			display: none;
-		}
-	</style>
 </head>
 <body>
 <div class="container">
 	<div id="miembros_boxchat">
 		<div class="row">
-			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="panel panel-danger">
+  					<div class="panel-heading"><img id="myuser" class="img-circle" src="https://cid-cdf1fc05a348acb9.users.storage.live.com/users/0xcdf1fc05a348acb9/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1&ex=720&fofoff=1&sid=0CCB3C0D296F6DD43735352C28836C9E">
+  					<i class="icon icon-chat"></i>
+  					</div>
+ 	 					<div class="panel-body">Panel content ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+ 	 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+ 	 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+ 	 					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+ 	 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+ 	 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  						</div>
+				</div>
+			</div>
 
 			<div class="col-md-8">
+				<div class="panel panel-danger">
+  					<div class="panel-heading"><img id="lablogo" class="img-circle" src="http://i67.tinypic.com/1z5s02q.png">
+  					</div>
+ 	 					<div class="panel-body">Panel content
+  						</div>
+				</div>
+
 				<div id="bienvenida" class="well">
 					<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
 					<input type="text" id="nombre" class="form-control">
@@ -48,10 +57,10 @@
 
 				<div id="chat" class="well">
 					<h1>Bienvenid@ a mi super chat</h1>
-					<p>Solo puedes envíar mensajes, en una siguiente versión también lo verás!!</p>
+					<p>mantente comunicado en todo momento con tus amigos!!</p>
 					<input type="text" id="mensaje" class="form-control">
 					<button onclick="enviarMensaje()">Enviar mensaje</button>
-					<button onclick="limpiarMensajes()">Limpiar mensajes</button>
+					<button onclick="limpiarMensajes()">borrar</button>
 					<ul id="lista_mensajes" class="list-group"></ul>
 					<p>
 						<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
