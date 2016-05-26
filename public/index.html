@@ -18,6 +18,21 @@
 </head>
 <body>
 <div class="container">
+
+	<div id="bienvenida" class="well">
+					<h1>Bienvenid@ a mi super chat</h1>
+					<p>mantente comunicado en todo momento con tus amigos!!</p>
+					<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
+					<input type="text" id="nombre" class="form-control">
+					<button onclick="guardarNombre()">Entrar</button>
+					<div
+						class="fb-like"
+						data-share="true"
+						data-width="450"
+						data-show-faces="true">
+					</div>
+				</div>
+
 	<div id="miembros_boxchat">
 		<div class="row">
 			<div class="col-md-4">
@@ -40,32 +55,24 @@
   					<div class="panel-heading"><img id="lablogo" class="img-circle" src="http://i67.tinypic.com/1z5s02q.png">
   					</div>
  	 					<div class="panel-body">Panel content
-  						</div>
+
+ 	 					<div id="chat" class="well">
+						<ul id="lista_mensajes" class="list-group"></ul>
+					
+						<input type="text" id="mensaje" class="form-control">
+						<button onclick="enviarMensaje()">Enviar mensaje</button>
+						<button onclick="limpiarMensajes()">borrar</button>
+					
+						<p>
+							<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
+						</p>
+						</div>
+  					</div>
 				</div>
 
-				<div id="bienvenida" class="well">
-					<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
-					<input type="text" id="nombre" class="form-control">
-					<button onclick="guardarNombre()">Entrar</button>
-					<div
-						class="fb-like"
-						data-share="true"
-						data-width="450"
-						data-show-faces="true">
-					</div>
-				</div>
+				
 
-				<div id="chat" class="well">
-					<h1>Bienvenid@ a mi super chat</h1>
-					<p>mantente comunicado en todo momento con tus amigos!!</p>
-					<input type="text" id="mensaje" class="form-control">
-					<button onclick="enviarMensaje()">Enviar mensaje</button>
-					<button onclick="limpiarMensajes()">borrar</button>
-					<ul id="lista_mensajes" class="list-group"></ul>
-					<p>
-						<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
-					</p>
-				</div>
+				
 			</div>
 		</div>
 		<script>
