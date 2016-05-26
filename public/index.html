@@ -13,7 +13,9 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-	<link rel="stylesheet" href="css/main.css">
+	 <!-- Plugin -->
+    <link rel="stylesheet" type="text/css" href="chatSocketAchex.css">
+    <script src="chatSocketAchex.js"></script>
 
 </head>
 <body>
@@ -41,18 +43,22 @@ body{
     margin-top: 0;
 	}
 #lablogo
-{
+	{
  	width: 50px;
     height: 50px;
     margin-top: 0;
-}
+	}
 #miembros_boxchat
-{
+	{
 	margin-top: 20px;
-	border: 3px solid #f6f6f6; 
-}
+	border-radius: 0;
+	}
+.pd-0{
+	padding-right: 0;
+	padding-left: 0;
+	}
 .green-wallpaper
-{
+	{
     position: fixed;
     z-index: -1;
     background-color: #009688;
@@ -61,59 +67,66 @@ body{
     content: '';
     top: 0;
     left: 0;
-}
+	}
+#appwall
+	{
+		background: url(http://wallpaperstock.net/wallpapers/thumbs1/51439hd.jpg);
+		background-position: fixed;
+		height: 800px;
+	}
+#miembros
+	{
+
+	}
 </style>
 <div class="green-wallpaper"></div>
 
 <div class="container">
 
 	<div id="bienvenida" class="well">
-					<h1>Bienvenid@ a mi super chat</h1>
-					<p>mantente comunicado en todo momento con tus amigos!!</p>
-					<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
-					<input type="text" id="nombre" class="form-control">
-					<button onclick="guardarNombre()">Entrar</button>
-					<div
-						class="fb-like"
-						data-share="true"
-						data-width="450"
-						data-show-faces="true">
-					</div>
-				</div>
+		<h1>Bienvenid@ a mi super chat</h1>
+		<p>mantente comunicado en todo momento con tus amigos!!</p>
+		<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
+		<input type="text" id="nombre" class="form-control">
+		<button onclick="guardarNombre()">Entrar</button>
+		<div
+			class="fb-like"
+			data-share="true"
+			data-width="450"
+			data-show-faces="true">
+		</div>
+	</div>
 
 	<div id="miembros_boxchat">
 		<div class="row">
-			<div class="col-md-4">
-				<div class="panel panel-danger">
+			<div class="col-md-4 pd-0">
+				<div class="panel panel-danger bod-0">
   					<div class="panel-heading"><img id="myuser" class="img-circle" src="https://cid-cdf1fc05a348acb9.users.storage.live.com/users/0xcdf1fc05a348acb9/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1&ex=720&fofoff=1&sid=0CCB3C0D296F6DD43735352C28836C9E">
-  					<i class="icon icon-chat"></i>
+  					<i id="miembros" class="glyphicon glyphicon-comment"></i>
+  					<i id="miembros" class="glyphicon glyphicon-option-vertical"></i>
   					</div>
- 	 					<div class="panel-body">Panel content ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 	 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 	 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 	 					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 	 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 	 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ 	 					<div class="panel-body">
   						</div>
 				</div>
 			</div>
 
-			<div class="col-md-8">
-				<div class="panel panel-danger">
-  					<div class="panel-heading"><img id="lablogo" class="img-circle" src="http://i67.tinypic.com/1z5s02q.png">
+			<div class="col-md-8 pd-0">
+				<div class="panel panel-danger bod-0">
+  					<div class="panel-heading"><img id="lablogo" class="img-circle" src="http://i67.tinypic.com/1z5s02q.png"> Laboratoria
   					</div>
- 	 					<div class="panel-body">Panel content
-
- 	 					<div id="chat" class="well">
-						<ul id="lista_mensajes" class="list-group"></ul>
+ 	 				<div id="appwall" class="panel-body">
+						<div class="bodychat">
+ 	 						<div id="chat" class="well">
+								<ul id="lista_mensajes" class="list-group"></ul>
 					
-						<input type="text" id="mensaje" class="form-control">
-						<button onclick="enviarMensaje()">Enviar mensaje</button>
-						<button onclick="limpiarMensajes()">borrar</button>
+								<input type="text" id="mensaje" class="form-control">
+								<button onclick="enviarMensaje()">Enviar mensaje</button>
+								<button onclick="limpiarMensajes()">borrar</button>
 					
-						<p>
-							<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
-						</p>
+								<p>
+								<small style="font-size:10px;">Esta escribiendo...</small>
+								</p>
+							</div>
 						</div>
   					</div>
 				</div>
