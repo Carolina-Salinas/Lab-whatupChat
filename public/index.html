@@ -5,17 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="image/favicon.png" type="image/png">
+	<link rel="shortcut icon" href="https://lh5.ggpht.com/TZbT5S4x5KDQwEumS2AQNEbvMYx2rlDxi_RcDNX46Uy1c0h1ssnRJqbqIVpUfzmOw8w=w124" type="image/png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CRoboto:300,400,500" media="all">
 	<title>Title</title>
 	<!-- Vincula los CSS que faltan -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-	 <!-- Plugin -->
-    <link rel="stylesheet" type="text/css" href="chatSocketAchex.css">
-    <script src="chatSocketAchex.js"></script>
 
 </head>
 <body>
@@ -24,17 +21,31 @@ body{
 	background-color: #f4f4f4;
 }
 
-
 #bienvenida
 	{
-		border: 1px solid #CCC;
-		margin: 10px;
+		padding: auto;
+		background: url(https://c.stocksy.com/a/SKx000/z0/228064.jpg); 
+		background-size: cover;
+		height: 800px;
 	}
+
 #chat
 	{
-		margin: 10px;
-		border: 1px solid #CCC;
+		padding: 5px;
+		margin: 10px 10px;
 		display: none;
+	}
+
+.list-group-item
+	{
+		margin-bottom: 10px;
+		width: 400px;
+	}
+
+.label-danger 
+	{
+		background: none;
+		color: #d9534f;
 	}
 #myuser
 	{
@@ -72,23 +83,24 @@ body{
 	{
 		background: url(http://wallpaperstock.net/wallpapers/thumbs1/51439hd.jpg);
 		background-position: fixed;
-		height: 800px;
+		height: 400px;
 	}
-#miembros
-	{
+.panel-body {
+    overflow-y: scroll;
+    height: 400px;
+	}
 
-	}
 </style>
 <div class="green-wallpaper"></div>
-
 <div class="container">
-
 	<div id="bienvenida" class="well">
-		<h1>Bienvenid@ a mi super chat</h1>
+		<h1>Bienvenid@ a mi super chat by Carito Salinas</h1>
 		<p>mantente comunicado en todo momento con tus amigos!!</p>
 		<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
 		<input type="text" id="nombre" class="form-control">
 		<button onclick="guardarNombre()">Entrar</button>
+		
+		 <!-- Facebook -->
 		<div
 			class="fb-like"
 			data-share="true"
@@ -96,7 +108,6 @@ body{
 			data-show-faces="true">
 		</div>
 	</div>
-
 	<div id="miembros_boxchat">
 		<div class="row">
 			<div class="col-md-4 pd-0">
@@ -109,31 +120,26 @@ body{
   						</div>
 				</div>
 			</div>
-
 			<div class="col-md-8 pd-0">
 				<div class="panel panel-danger bod-0">
   					<div class="panel-heading"><img id="lablogo" class="img-circle" src="http://i67.tinypic.com/1z5s02q.png"> Laboratoria
   					</div>
  	 				<div id="appwall" class="panel-body">
 						<div class="bodychat">
- 	 						<div id="chat" class="well">
+ 	 						<div id="chat" class="alert">
 								<ul id="lista_mensajes" class="list-group"></ul>
-					
-								<input type="text" id="mensaje" class="form-control">
-								<button onclick="enviarMensaje()">Enviar mensaje</button>
-								<button onclick="limpiarMensajes()">borrar</button>
-					
-								<p>
-								<small style="font-size:10px;">Esta escribiendo...</small>
-								</p>
+								<div id="send well">
+									<input type="text" id="mensaje" class="form-control">
+									<button onclick="enviarMensaje()">Enviar mensaje</button>
+									<button onclick="limpiarMensajes()">borrar</button>
+									<p>
+									<small style="font-size:10px;">Esta escribiendo...</small>
+									</p>
+								</div>
 							</div>
 						</div>
   					</div>
 				</div>
-
-				
-
-				
 			</div>
 		</div>
 		<script>
