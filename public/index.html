@@ -23,7 +23,7 @@ body{
 
 #bienvenida
 	{
-		padding: auto;
+		padding: 0;
 		background: url(https://c.stocksy.com/a/SKx000/z0/228064.jpg); 
 		background-size: cover;
 		height: 800px;
@@ -31,9 +31,9 @@ body{
 
 #chat
 	{
-		padding: 5px;
-		margin: 10px 10px;
 		display: none;
+		overflow-y: scroll;
+		height: 280px;
 	}
 
 .list-group-item
@@ -85,10 +85,12 @@ body{
 		background-position: fixed;
 		height: 400px;
 	}
-.panel-body {
-    overflow-y: scroll;
-    height: 400px;
+
+#appwall.panel-body
+	{
+padding: 0;
 	}
+
 
 </style>
 <div class="green-wallpaper"></div>
@@ -99,7 +101,6 @@ body{
 		<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
 		<input type="text" id="nombre" class="form-control">
 		<button onclick="guardarNombre()">Entrar</button>
-		
 		 <!-- Facebook -->
 		<div
 			class="fb-like"
@@ -111,14 +112,20 @@ body{
 	<div id="miembros_boxchat">
 		<div class="row">
 			<div class="col-md-4 pd-0">
-				<div class="panel panel-danger bod-0">
+				<div id="miembros_menu"  class="panel panel-danger bod-0">
   					<div class="panel-heading"><img id="myuser" class="img-circle" src="https://cid-cdf1fc05a348acb9.users.storage.live.com/users/0xcdf1fc05a348acb9/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1&ex=720&fofoff=1&sid=0CCB3C0D296F6DD43735352C28836C9E">
   					<i id="miembros" class="glyphicon glyphicon-comment"></i>
   					<i id="miembros" class="glyphicon glyphicon-option-vertical"></i>
   					</div>
- 	 					<div class="panel-body">
-  						</div>
-				</div>
+  				</div>
+ 	 				<div id="miembros_list" class="panel-body">
+ 	 				<div class="miembros-chat">
+ 	 						<div id="contactos_box" class="alert">
+								<ul id="contactos" class="list-group"></ul>
+							</div>
+  					</div>
+					</div>
+				
 			</div>
 			<div class="col-md-8 pd-0">
 				<div class="panel panel-danger bod-0">
@@ -128,7 +135,8 @@ body{
 						<div class="bodychat">
  	 						<div id="chat" class="alert">
 								<ul id="lista_mensajes" class="list-group"></ul>
-								<div id="send well">
+							</div>
+								<div id="send">
 									<input type="text" id="mensaje" class="form-control">
 									<button onclick="enviarMensaje()">Enviar mensaje</button>
 									<button onclick="limpiarMensajes()">borrar</button>
@@ -136,7 +144,6 @@ body{
 									<small style="font-size:10px;">Esta escribiendo...</small>
 									</p>
 								</div>
-							</div>
 						</div>
   					</div>
 				</div>
@@ -177,6 +184,11 @@ body{
 				$('#mensaje').val('');
 				$('#mensaje').focus();
 			}
+			 /*
+			function enviarContacto()
+			{
+				socket.emit('contactos', "<span class='label label-danger'>" +  nombre "</span>.");
+			}*/
 
 			function limpiarMensajes()
 			{
@@ -187,6 +199,11 @@ body{
 			{
 				$('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
 			});
+			socket.on('nuevo_contacto', function (_msg)
+			{
+				$('#contactos').append('<li class="list-group-item"> </li>');
+			});
+			
 
 		</script>
 	</div>
